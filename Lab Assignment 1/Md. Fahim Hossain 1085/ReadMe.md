@@ -47,7 +47,7 @@ glClear(GL_COLOR_BUFFER_BIT);
 ### Keyboard Input Handling
 
 - Keyboard input is handled using the `processInput` function.
-- When the user presses the **'F'** key (the first letter of the name _Fahim_), the window is closed.
+- When the user presses the **'F'** key (the first letter of the name \"Fahim\"), the window is closed.
 
 ```cpp
 void processInput(GLFWwindow *window)
