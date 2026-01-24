@@ -67,7 +67,12 @@ The following screenshots demonstrate the successful execution of the program:
 
 #### Example Screenshots
 
+##### Window Creation
+
 ![Cyan Window with Name](./../output%20screenshot.jpg)
+
+##### Window Closing
+
 ![Window Closing on Key Press](./../closing%20window.gif)
 
 > 📌 _These screenshots verify that all assignment requirements have been correctly implemented._
