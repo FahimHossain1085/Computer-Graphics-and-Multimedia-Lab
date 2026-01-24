@@ -1,8 +1,10 @@
-# OpenGL GLFW Lab Assignment
+# Lab Assignment 1
 
 ## Assignment Objective
 
-The objective of this lab assignment is to create a GLFW window with a cyan-colored background and set the window title to the student’s full name. Additionally, the program should close the window when the user presses the first letter of the student’s name on the keyboard.
+Create a dedicated GitHub Repository for this course and submit the folder link and output screenshot (full window) for this assignment. Add a proper README file. Follow proper code formatting. Add comments where necessary (Prove that it has been run in your computer). Your work must be original.
+
+Create a cyan colored window containing your full name as the window name. If the user presses the keyboard's key "your name's first letter", the window gets closed.
 
 ---
 
