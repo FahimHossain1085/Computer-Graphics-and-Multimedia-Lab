@@ -31,3 +31,12 @@ GLFWwindow *window = glfwCreateWindow(
 );
 
 ```
+
+### Background Color
+
+- The background color of the window is set to **cyan** using RGBA values.
+- The color buffer is cleared every frame to apply the cyan color.
+
+```cpp
+glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
+glClear(GL_COLOR_BUFFER_BIT);
