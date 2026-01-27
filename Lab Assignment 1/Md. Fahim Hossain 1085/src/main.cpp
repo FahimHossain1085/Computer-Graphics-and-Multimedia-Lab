@@ -73,7 +73,7 @@ int main()
 void processInput(GLFWwindow *window)
 {
     // If the user presses the 'F' key (first letter of my name "Fahim") the window gets closed.
-    if (glfwGetKey(window, 'F') == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }
 
