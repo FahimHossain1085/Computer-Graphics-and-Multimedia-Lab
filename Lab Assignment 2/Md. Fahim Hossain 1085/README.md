@@ -10,23 +10,24 @@
 - **Orange background** applied using `glClearColor`
 - Window title set to **"Md. Fahim Hossain"**
 - Window closes when the user presses **'F'** (initial of _Fahim_)
+
 ---
 
 ## Shader Implementation
 
 ### Vertex Shader
+
 - Accepts vertex positions as input
 - Passes positions directly to the OpenGL pipeline
 
 ### Fragment Shader
+
 - Outputs a **cyan color** for all fragments
 - Color used: `(0.0f, 1.0f, 1.0f, 1.0f)`
 
 ---
 
 ## Triangle Vertex Coordinates
-
-
 
 ```cpp
 float vertices[] = {
@@ -46,6 +47,7 @@ These vertex coordinates ensure that:
 
 - The two triangles are positioned **far apart** at opposite corners of the screen.
 - Each triangle has **one obtuse angle**, satisfying the lab task requirement.
+
 ### Background Color
 
 An **orange background** is applied using the following OpenGL function:
@@ -53,6 +55,7 @@ An **orange background** is applied using the following OpenGL function:
 ```cpp
 glClearColor(1.0f, 0.5f, 0.0f, 1.0f);
 ```
+
 ### Window Creation
 
 - The window is created using `glfwCreateWindow`.
@@ -68,7 +71,6 @@ GLFWwindow *window = glfwCreateWindow(
 );
 
 ```
-
 
 ### Keyboard Input Handling
 
@@ -87,19 +89,12 @@ void processInput(GLFWwindow *window)
 
 The following screenshots demonstrate the successful execution of the program:
 
-
 ### Example Screenshots
 
 #### Window Creation
 
-![](./../output%20screenshot.jpg)
+![](./../output%20screenshot.JPG)
 
 #### Window Closing
 
 ![Window Closing on Key Press](./../closing%20window.gif)
-
-
-
-
-
-
