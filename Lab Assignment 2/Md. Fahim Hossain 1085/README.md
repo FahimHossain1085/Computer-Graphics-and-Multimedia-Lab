@@ -80,7 +80,7 @@ GLFWwindow *window = glfwCreateWindow(
 ```cpp
 void processInput(GLFWwindow *window)
 {
-    if (glfwGetKey(window, 'F') == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }
 ```
