@@ -10,8 +10,50 @@
 - **Orange background** applied using `glClearColor`
 - Window title set to **"Md. Fahim Hossain"**
 - Window closes when the user presses **'F'** (initial of _Fahim_)
+---
 
-<!-- ### Window Creation
+## Shader Implementation
+
+### Vertex Shader
+- Accepts vertex positions as input
+- Passes positions directly to the OpenGL pipeline
+
+### Fragment Shader
+- Outputs a **cyan color** for all fragments
+- Color used: `(0.0f, 1.0f, 1.0f, 1.0f)`
+
+---
+
+## Triangle Vertex Coordinates
+
+
+
+```cpp
+float vertices[] = {
+    // Bottom-left obtuse triangle
+    -0.9f, -0.8f, 0.0f,
+    -0.2f, -0.8f, 0.0f,
+    -0.9f, -0.3f, 0.0f,
+
+    // Top-right obtuse triangle
+     0.2f,  0.8f, 0.0f,
+     0.9f,  0.8f, 0.0f,
+     0.9f,  0.3f, 0.0f
+};
+```
+
+These vertex coordinates ensure that:
+
+- The two triangles are positioned **far apart** at opposite corners of the screen.
+- Each triangle has **one obtuse angle**, satisfying the lab task requirement.
+### Background Color
+
+An **orange background** is applied using the following OpenGL function:
+
+```cpp
+glClearColor(1.0f, 0.5f, 0.0f, 1.0f);
+```
+### Window Creation
 
 - The window is created using `glfwCreateWindow`.
 - The window title is set to **"Md. Fahim Hossain"**.
@@ -27,15 +69,6 @@ GLFWwindow *window = glfwCreateWindow(
 
 ```
 
-### Background Color
-
-- The background color of the window is set to **cyan** using RGBA values.
-- The color buffer is cleared every frame to apply the cyan color.
-
-```cpp
-glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
-glClear(GL_COLOR_BUFFER_BIT);
-```
 
 ### Keyboard Input Handling
 
@@ -54,16 +87,19 @@ void processInput(GLFWwindow *window)
 
 The following screenshots demonstrate the successful execution of the program:
 
-- A cyan-colored window is displayed upon running the application.
-- The window title shows the full name **"Md. Fahim Hossain"**.
-- Pressing the **'F'** key closes the window as required.
 
 ### Example Screenshots
 
 #### Window Creation
 
-![Cyan Window with Name](./../output%20screenshot.jpg)
+![](./../output%20screenshot.jpg)
 
 #### Window Closing
 
-![Window Closing on Key Press](./../closing%20window.gif) -->
+![Window Closing on Key Press](./../closing%20window.gif)
+
+
+
+
+
+
