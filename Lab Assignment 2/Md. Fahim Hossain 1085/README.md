@@ -17,10 +17,31 @@
 
 ### Vertex Shader
 
+```cpp
+const char *vertexShaderSource = "#version 330 core\n"
+                                 "layout (location = 0) in vec3 aPos;\n"
+                                 "void main()\n"
+                                 "{\n"
+                                 "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+                                 "}\0";
+
+```
+
 - Accepts vertex positions as input
 - Passes positions directly to the OpenGL pipeline
 
 ### Fragment Shader
+
+```cpp
+
+const char *fragmentShaderSource = "#version 330 core\n"
+                                   "out vec4 FragColor;\n"
+                                   "void main()\n"
+                                   "{\n"
+                                   "   FragColor = vec4(0.0f, 1.0f, 1.0f, 1.0f);\n"
+                                   "}\n\0";
+
+```
 
 - Outputs a **cyan color** for all fragments
 - Color used: `(0.0f, 1.0f, 1.0f, 1.0f)`
