@@ -118,18 +118,25 @@ int main()
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
    
+  
+
     float vertices[] = {
-        //bottom left triangle
-        -0.9f, -0.8f, 0.0f,
-        -0.2f, -0.8f, 0.0f,
-        -0.9f, -0.3f, 0.0f,
+    // Bottom Left Triangle
+    
+    -0.9f, -0.3f, 0.0f, 
+   
+    -0.7f, -0.8f, 0.0f, 
+  
+    -0.1f, -0.8f, 0.0f, 
 
-        //top right triangle
-         0.2f, 0.8f, 0.0f,
-         0.9f, 0.8f, 0.0f,
-         0.9f, 0.3f, 0.0f
-
-    };
+    // Top Right Triangle
+   
+     0.9f,  0.3f, 0.0f,
+   
+     0.7f,  0.8f, 0.0f,
+   
+     0.1f,  0.8f, 0.0f
+};
 
     unsigned int VBO, VAO; /*Here, we are declaring two variables:
     VBO (Vertex Buffer Object): This will store the actual vertex data (like positions, colors, etc.).
