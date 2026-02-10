@@ -110,8 +110,6 @@ void processInput(GLFWwindow *window)
 
 The following screenshots demonstrate the successful execution of the program:
 
-### Example Screenshots
-
 #### Window Creation
 
 ![](./../output%20screenshot.JPG)
