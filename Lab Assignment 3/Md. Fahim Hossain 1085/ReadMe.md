@@ -115,4 +115,4 @@ The following screenshots demonstrate the successful execution of the program:
 
 #### Window Creation
 
-![](./../output%20screenshot.JPG)
+![](./../output%20screenshot.jpg)
