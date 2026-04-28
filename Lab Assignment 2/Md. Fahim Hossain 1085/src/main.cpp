@@ -129,7 +129,7 @@ int main()
   
     -0.1f, -0.8f, 0.0f, 
 
-    // Top Right Triangle
+   // Top Right Triangle
    
      0.9f,  0.3f, 0.0f,
    
