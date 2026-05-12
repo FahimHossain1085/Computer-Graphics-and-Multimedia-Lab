@@ -47,3 +47,7 @@ float transform[16] = {
 - Applied via transformation matrix passed to vertex shader
 
 ---
+
+### Output
+
+![output](<./../(1085)%20output.gif>)
