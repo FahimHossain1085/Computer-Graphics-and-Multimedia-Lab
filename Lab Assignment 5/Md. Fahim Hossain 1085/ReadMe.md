@@ -1,105 +1,49 @@
-# Lab Assignment 4
+# Lab Assignment 5
 
 ## Implemented Features
 
-- One triangle drawn using OpenGL
-- Dynamic color animation applied using a fragment shader (cyan to magenta transition)
-- White color applied when pressing 'W'
-- Red color lock enabled when pressing 'R'
-- Blue background applied using glClearColor
+- Rectangle drawn using two triangles with OpenGL
+- Dynamic color animation using a fragment shader (red to white transition)
+- Transformation effects: scaling and rotation applied in real-time
+- Dark gray background (0.1, 0.1, 0.1) applied using glClearColor
 - Window title set to "0432320005101085"
-- Window closes when the user presses 'F' (initial of Fahim)
+- Smooth animation using sin function for time-based effects
 
 ---
 
 ## Color Animation Logic
 
-
-
 ```cpp
-float blendValue = sin(timeValue) * 0.5 + 0.5;
-
+float timeValue = glfwGetTime();
+float mixValue = (sin(timeValue) * 0.5f + 0.5f); // oscillates 0→1
+float r = 1.0f;
+float g = mixValue;
+float b = mixValue;
 ```
 
-- Creates smooth transition between colors
-- Produces continuous animation effect
-
-
-### Keyboard Input Handling
-- Keyboard input is handled using the processInput function
-
-```cpp
- while (!glfwWindowShouldClose(window))
-    {
-        // input
-        // -----
-        processInput(window);
-
-        // render
-        // ------
-        glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        // be sure to activate the shader before any calls to glUniform
-        glUseProgram(shaderProgram);
-
-        // update shader uniform
-        double timeValue = glfwGetTime(); 
-        float blendValue = static_cast<float>(sin(timeValue) * 0.5 + 0.5);
-        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-
-        if (gRedLocked)
-        {
-            glUniform4f(vertexColorLocation, 1.0f, 0.0f, 0.0f, 1.0f);
-        }
-        else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        {
-            glUniform4f(vertexColorLocation, 1.0f, 1.0f, 1.0f, 1.0f);
-        }
-        else
-        {
-            // Animate cyan (0,1,1) to magenta (1,0,1)
-            glUniform4f(vertexColorLocation, blendValue, 1.0f - blendValue, 1.0f, 1.0f);
-        }
-
-
-        // render the triangle
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-
-    // optional: de-allocate all resources once they've outlived their purpose:
-    // ------------------------------------------------------------------------
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteProgram(shaderProgram);
-
-    // glfw: terminate, clearing all previously allocated GLFW resources.
-    // ------------------------------------------------------------------
-    glfwTerminate();
-    return 0;
-}
-
-void processInput(GLFWwindow *window)
-{
-    if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-
-    if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-        gRedLocked = true;
-}
-
-```
-
-- Press 'W' → Triangle becomes white
-- Press 'R' → Triangle color locks to red
-- Press 'F' → Window closes
+- Creates smooth transition from red (1, 0, 0) to white (1, 1, 1)
+- Produces continuous animation effect using sine wave oscillation
+- Red component stays constant at 1.0, green and blue blend from 0 to 1
 
 ---
 
+## Transformation Logic
 
+```cpp
+float scale = 0.5f + 0.5f * sin(timeValue); // magnify
+float angle = timeValue; // rotate over time
+float cosA = cos(angle), sinA = sin(angle);
 
+float transform[16] = {
+    scale * cosA, scale * -sinA, 0.0f, 0.0f,
+    scale * sinA, scale *  cosA, 0.0f, 0.0f,
+    0.0f,         0.0f,         scale, 0.0f,
+    0.0f,         0.0f,         0.0f,  1.0f
+};
+```
+
+- Rectangle scales between 0.0 and 1.0 over time
+- Rectangle rotates continuously based on elapsed time
+- Applied via transformation matrix passed to vertex shader
+
+---
